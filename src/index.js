@@ -1,20 +1,9 @@
-function component() {
-  const element = document.createElement('div')
+const worker = new Worker(new URL('./deep-thought.js', import.meta.url))
 
-  element.innerHTML = join(['Hello', 'webpack'], ' ')
+worker.postMessage({
+  question: 'The answer...'
+})
 
-  this.alert('Hmm, this probably isn\'t a gret idea...')
-
-  return element
+worker.onMessage = ({ data: { answer } }) => {
+  console.log(answer)
 }
-
-document.body.appendChild(component())
-
-fetch('https://jsonplaceholder.typicode.com/users')
-  .then(response => response.json())
-  .then(json => {
-    console.log('We retrieved some data!', json)
-  })
-  .catch(error => {
-    console.error('Something went wrong', error)
-  })
