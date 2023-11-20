@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'MyFont';
-  src: url('./TiltWarp-Regular.ttf') format('ttf');
+  src: url('./TiltWarp-Regular.ttf') format('truetype');
   font-weight: 600;
   font-style: normal;
 }

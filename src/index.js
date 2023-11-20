@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import sayHello from './hello'
 import './style.css'
 import Icon from './webpack.jpeg'
 // import xml from './data.xml'
@@ -21,6 +22,7 @@ function component() {
 
   element.innerHTML = _.join(['Hello', 'webpack'], '')
   element.classList.add('hello')
+  element.onclick = sayHello()
 
   const myIcon = new Image()
   myIcon.src = Icon
