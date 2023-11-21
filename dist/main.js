@@ -14,9 +14,9 @@
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/***/ ((__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("/* harmony import */ var _math_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./math.js */ \"./src/math.js\");\n\n\nfunction component() {\n  const element = document.createElement('pre')\n\n  element.innerHTML = [\n    'Hello webpack!',\n    '5 cubed is equal to ' + (0,_math_js__WEBPACK_IMPORTED_MODULE_0__.cube)(5)\n  ].join('\\n\\n')\n\n  return element\n}\n\ndocument.body.appendChild(component())\n\n\n//# sourceURL=webpack://demo/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _math_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./math.js */ \"./src/math.js\");\n\n\nfunction component() {\n  const element = document.createElement('pre')\n\n  element.innerHTML = [\n    'Hello webpack!',\n    '5 cubed is equal to ' + (0,_math_js__WEBPACK_IMPORTED_MODULE_0__.cube)(5)\n  ].join('\\n\\n')\n\n  return element\n}\n\ndocument.body.appendChild(component())\n\nif ('serviceWorker' in navigator) {\n  window.addEventListener('load', () => {\n    navigator.serviceWorker.register('/service-worker.js')\n      .then(registration => {\n        console.log('SW registered: ', registration)\n      }).catch(error => {\n        console.log('SQ registered failed: ', error)\n      })\n  })\n}\n\n\n//# sourceURL=webpack://demo/./src/index.js?");
 
 /***/ }),
 
@@ -26,7 +26,7 @@ eval("/* harmony import */ var _math_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack
   \*********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   cube: () => (/* binding */ cube)\n/* harmony export */ });\n/* unused harmony export square */\nfunction square(x) {\n  return x * x;\n}\n\nfunction cube(x) {\n  return x * x * x;\n}\n\n//# sourceURL=webpack://demo/./src/math.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   cube: () => (/* binding */ cube),\n/* harmony export */   square: () => (/* binding */ square)\n/* harmony export */ });\nfunction square(x) {\n  return x * x;\n}\n\nfunction cube(x) {\n  return x * x * x;\n}\n\n//# sourceURL=webpack://demo/./src/math.js?");
 
 /***/ })
 
@@ -72,6 +72,17 @@ eval("/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harm
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
 /******/ 	})();
 /******/ 	
 /************************************************************************/

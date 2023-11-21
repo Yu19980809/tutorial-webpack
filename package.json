@@ -5,15 +5,18 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server dist",
     "build": "webpack"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "html-webpack-plugin": "^5.5.3",
+    "http-server": "^14.1.1",
     "lodash": "^4.17.21",
     "webpack": "^5.89.0",
-    "webpack-cli": "^5.1.4"
-  },
-  "sideEffects": ["./src/some-side-effectful-file.js", "*.css"]
+    "webpack-cli": "^5.1.4",
+    "workbox-webpack-plugin": "^7.0.0"
+  }
 }
