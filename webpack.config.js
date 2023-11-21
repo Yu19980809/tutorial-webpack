@@ -32,10 +32,16 @@ module.exports = {
     //     { from: /./, to: '/views/404.html' },
     //   ],
     // },
-    
+
     // 开发服务器主机
     // 在同一局域网下的其他设备可以通过 ip 来访问当前服务
     // host: '0.0.0.0',
+
+    // 模块热替换
+    // hot: true,
+
+    // 热更新（文件更新时，自动刷新页面）
+    // liveReload: false, // 默认为true,如何设置 false，也要同时将 hot 属性设置为 false
   },
   plugins: [
     new HtmlWebpackPlugin({
