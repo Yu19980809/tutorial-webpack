@@ -2,32 +2,22 @@ const path = require('path')
 const webpack = require('webpack')
 
 module.exports = {
-  entry: {
-    polyfills: './src/polyfill.js',
-    index: './src/index.js',
-  },
+  entry: './src/index.js',
   output: {
-    filename: '[name].bundle.js',
+    filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
   },
-  module: {
-    rules: [
-      // 将 this 的指向修改为 window 对象
-      {
-        test: require.resolve('./src/index.js'),
-        use: 'imports-loader?wrapper=window',
-      },
-      // 全局导出，之后就可以使用 const { file } = require('./globl.js')
-      {
-        test: require.resolve('./src/global.js'),
-        use: 'exports-loader?type=commonjs&exports=file,multiple|helpers.parse|parse'
-      },
-    ],
+  // 模块路径解析
+  resolve: {
+    // 设置文件路径别名
+    alias: {
+      '@utils': path.resolve(__dirname, 'src/utils/')
+    },
+    // 默认配置的优先级，安装数组中的顺序去解析文件
+    extensions: ['.js', '.json', '.txt'],
   },
-  plugins: [
-    new webpack.ProvidePlugin({
-      // _: 'lodash',
-      join: ['lodash', 'join'],
-    }),
-  ],
+  // 外部扩展
+  externals: {
+    l: 'lodash',  // 在逻辑文件中就可以使用 import _ from l 来引入 lodash 中的内容
+  },
 }
