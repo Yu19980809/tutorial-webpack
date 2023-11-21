@@ -1,10 +1,10 @@
-import add from '@utils/add'
+// 在 webpack.config.js 中开启模块后，可以导入模块
+import style from './style.css'
 
 function component() {
   const element = document.createElement('div')
   element.innerHTML = 'Hello'
-
-  console.log(add(1, 3))
+  element.classList.add(style.box)
 
   return element
 }
