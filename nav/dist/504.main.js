@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdemo=self.webpackChunkdemo||[]).push([[504],{504:(e,n,t)=>{t.r(n),t.d(n,{default:()=>c});const c=()=>{const e=document.createElement("h1");return e.innerHTML="header content",e}}}]);

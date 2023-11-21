@@ -1,6 +1,6 @@
 const Header = () => {
   const header = document.createElement('h1')
-  header.textContext = 'header content'
+  header.innerHTML = 'header content'
   return header
 }
 
