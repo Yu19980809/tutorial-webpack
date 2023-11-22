@@ -1,0 +1,26 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yu19980809/tutorial-webpack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yu19980809/tutorial-webpack/issues"
+  },
+  "homepage": "https://github.com/Yu19980809/tutorial-webpack#readme",
+  "devDependencies": {
+    "@babel/core": "^7.23.3",
+    "@babel/parser": "^7.23.4",
+    "@babel/preset-env": "^7.23.3",
+    "@babel/traverse": "^7.23.4"
+  }
+}
