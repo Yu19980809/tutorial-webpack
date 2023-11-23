@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "properties": {
+    "author": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

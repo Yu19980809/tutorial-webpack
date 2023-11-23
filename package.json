@@ -19,10 +19,16 @@
   },
   "homepage": "https://github.com/Yu19980809/tutorial-webpack#readme",
   "devDependencies": {
+    "@babel/core": "^7.23.3",
+    "@babel/preset-env": "^7.23.3",
     "child_process": "^1.0.2",
+    "css-loader": "^6.8.1",
+    "eslint": "^8.54.0",
+    "eslint-plugin-react": "^7.33.2",
     "html-webpack-plugin": "^5.5.3",
-    "jsdom": "^22.1.0",
-    "marked": "^10.0.0",
+    "images": "^3.2.4",
+    "loader-utils": "^3.2.1",
+    "uglify-js": "^3.17.4",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4"
   }

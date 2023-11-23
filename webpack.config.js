@@ -1,42 +1,83 @@
-const path = require('path')
-// const HtmlWebpackPlugin = require('html-webpack-plugin')
-const HtmlWebpackPlugin = require('./src/plugins/html-webpack-plugin.js')
-const BannerWebpackPlugin = require('./src/plugins/banner-webpack-plugin.js')
-const AnalyzeWebpackPlugin = require('./src/plugins/analyze-webpack-plugin.js')
-const CleanWebpackPlugin = require('./src/plugins/clean-webpack-plugin.js')
-const CopyWebpackPlugin = require('./src/plugins/copy-webpack-plugin.js')
-const DefineWebpackPlugin = require('./src/plugins/define-webpack-plugin.js')
-const Md2HtmlWebpackPlugin = require('./src/plugins/md2html-webpack-plugin.js')
+const { resolve } = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   mode: 'development',
   entry: './src/index.js',
   output: {
     filename: 'main.js',
-    path: path.resolve(__dirname, 'dist'),
-    // clean: true,
+    path: resolve(__dirname, 'dist'),
+    clean: true,
   },
   plugins: [
-    // new HtmlWebpackPlugin({
-    //   template: './public/index.html',
-    //   title: 'Plugin',
-    // }),
-    new BannerWebpackPlugin({
-      name: 'Guangxin'
-    }),
-    new AnalyzeWebpackPlugin(),
-    new CleanWebpackPlugin(),
-    new CopyWebpackPlugin({
-      from: path.resolve(__dirname, './public/static'),
-      to: path.resolve(__dirname, './dist/static'),
-    }),
-    // new DefineWebpackPlugin({
-    //   BASE_URL: 'http://api/dev.com',
-    //   ENV: 'development',
-    // }),
-    new Md2HtmlWebpackPlugin({
-      from: path.resolve(__dirname, './src/docs'),
-      to: path.resolve(__dirname, './dist/docs'),
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+      title: 'Loader',
     }),
   ],
+  module: {
+    rules: [
+      // prefix comment
+      {
+        test: /\.js$/i,
+        loader: './src/loaders/banner-loader',
+        exclude: /node_modules/,
+        options: {
+          author: 'Guangxin',
+          date: '2023-11-23',
+        },
+      },
+      // clean-log
+      {
+        test: /\.js$/i,
+        loader: './src/loaders/clean-log-loader',
+        exclude: /node_modules/,
+      },
+      // images
+      // {
+      //   test: /\.(png|jpe?g|gif|svg)$/i,
+      //   loader: './src/loaders/file-loader',
+      //   // 让 webpack 把这些资源当成 js 处理
+      //   // 不要使用内部的资源处理程序去处理
+      //   type: 'javascript/auto',
+      // },
+      // {
+      //   test: /\.(png|jpe?g|gif|svg)$/i,
+      //   loader: './src/loaders/url-loader',
+      //   type: 'javascript/auto',
+      //   options: {
+      //     limit: 1024 * 500,
+      //   },
+      // },
+      // {
+      //   test: /\.(png|jpe?g|gif|svg)$/i,
+      //   loader: './src/loaders/file-loader',
+      //   type: 'javascript/auto',
+      //   options: {
+      //     quality: 50,
+      //   },
+      // },
+      // css
+      {
+        test: /\.css$/i,
+        use: ['./src/loaders/style-loader', 'css-loader'],
+        exclude: /node_modules/,
+      },
+      // uglify-loader
+      // {
+      //   test: /\.js$/i,
+      //   loader: './src/loaders/uglify-loader',
+      //   exclude: /node_modules/,
+      // },
+      // babel-loader
+      // {
+      //   test: /\.js$/i,
+      //   loader: './src/loaders/babel-loader',
+      //   exclude: /node_modules/,
+      //   options: {
+      //     presets: ['@babel/preset-env'],
+      //   },
+      // },
+    ],
+  },
 }
