@@ -83,7 +83,7 @@ module.exports = {
           // jsx
           {
             test: /\.(jsx?|tsx?)$/i,
-            loader: 'babel-loader',
+            use: ['thread-loader', 'babel-loader'],
             include: resolvePath('../src'),
             options: {
               cacheDirectory: true, // 开启 babel 缓存
@@ -149,6 +149,7 @@ module.exports = {
       },
     },
     // 运行时的 chunk 文件
+    // 作用是将包含 chunk 映射关系的列表从 main.js 中抽离出来
     runtimeChunk: {
       name: entrypoint => `runtime-${entrypoint.name}.js`
     },
